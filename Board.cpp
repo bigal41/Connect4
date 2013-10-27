@@ -27,13 +27,16 @@ Board::Board(){
 
 void Board::printBoard(){
 	int x, y;
+
+	cout << "\t0\t1\t2\t3\t4\t5\t6\n";
 	for(x = 0; x < bHeight; x++){
+		cout << x <<"\t";
 		for(y = 0; y < bWidth; y++){
 			cout << boardArray[x][y]<<"\t";
 			
 		}
 		cout<<endl;
-		cout<<"\n------------------------------------------------------------\n";
+		cout<<"\t-------------------------------------------------\n";
 	}
 }
 
