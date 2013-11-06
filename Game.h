@@ -7,15 +7,17 @@ class Game{
 	public:
 		void init();
 		void play();
+		int checkPiece(int);
 		bool checkHorz();
 		bool checkVert();
 		int  getMove();
-	private:  
+	private:
 		bool win;
 		char player1;
 		char player2;
 		int turn;
-		int placedPieced;
+		int piece;
+		int place;
 		Board* b;
   
 };
