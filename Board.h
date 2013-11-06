@@ -6,6 +6,8 @@ class Board{
 	public:
 		int getWidth();
 		int getHeight();
+		char getBoardPiece(int,int);
+		char setBoardPiece(int,int,char);
 		Board();
 		void printBoard();
 	private:

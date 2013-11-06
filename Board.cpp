@@ -8,6 +8,8 @@ using namespace std;
 
 int Board::getWidth(){return bWidth;}
 int Board::getHeight(){return bHeight;}
+char Board::getBoardPiece(int x,int y){return boardArray[x][y]; }
+char Board::setBoardPiece(int x,int y,char player){ boardArray[x][y] = player; }
 
 
 Board::Board(){
