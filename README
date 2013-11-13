@@ -1,2 +1,19 @@
-Connect4 will be a terminal based Connect four game based in c++.
-I will someday make it GUI based. 
+Connect4
+
+Connect4 is a c++ command line version of the childhood game Connect Four.
+
+To make the game, move into the Connect4 directory and type in the 'make' into the terminal. 
+Then to run game, type in './play' in the terminal
+
+
+The rules of the game are simple:
+	Needs 2 players to play
+	The first player to get four pieces in a row vertically, horizontally, or diagonally wins.
+	
+
+	
+To Be Implemented:
+	Check for a diagonal win.
+	Create a A.I player.
+	Player over a network.
+	Create a GUI.

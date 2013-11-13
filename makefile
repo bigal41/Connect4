@@ -1,7 +1,7 @@
-all: hello
+all: play
 
-hello: main.o Board.o Game.o
-	g++ main.o Board.o Game.o -o hello
+play: main.o Board.o Game.o
+	g++ main.o Board.o Game.o -o play
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -13,4 +13,4 @@ Board.o: Board.cpp
 	g++ -c Board.cpp
 	
 
-clean: rm -rf *o hello
+clean: rm -rf *o play
