@@ -8,7 +8,7 @@ class Game{
 		void init();
 		void play();
 		int checkPiece(int);
-		bool checkHorz();
+		bool checkHorz(int,int,char);
 		bool checkVert(int,int,char);
 		int  getMove();
 	private:

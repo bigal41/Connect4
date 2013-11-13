@@ -34,21 +34,20 @@ void Game::play(){
 		cout << "Turn: " << turn << endl;
 		if(turn >= 6){
 			if(turn%2 != 0){
-				/*win = checkHorz();
-				cout<<"Win: " << win <<endl;
+				win = checkHorz(place,piece,player2);
+				
 				if(win == true)
 					break;
-				*/
+
 				win = checkVert(place,piece,player2);
 				
 				if(win == true)
 					break;
 			}
 			if(turn%2 == 0){
-// 				win = checkHorz();
-// 				cout<<"Win: " << win <<endl;
-// 				if(win == true)
-// 					break;
+ 				win = checkHorz(place,piece,player1);
+ 				if(win == true)
+ 					break;
 				win = checkVert(place,piece,player1);
 				if(win == true)
 					break;
@@ -84,20 +83,98 @@ int Game::checkPiece(int piece){
 	return -1;
 }
 
-bool Game::checkHorz(){
+bool Game::checkHorz(int row, int column, char player){
+	int samePlayer = 0;
+	int pos;
+	switch(column){
+		case 0:
+			for(int check = column; check <= column + 3; check++){
+				if(b->getBoardPiece(row,check) != player)
+					samePlayer = 0;
+				else
+					samePlayer++;
+					
+				if(samePlayer == 4)
+					return true;
+			}
+			break;
+		case 1:
+			for(int check = column - 1; check <= column + 3; check++){
+				if(b->getBoardPiece(row,check) != player)
+					samePlayer = 0;
+				else
+					samePlayer++;
+					
+				if(samePlayer == 4)
+					return true;
+			}
+			break;
+		case 2:
+			for(int check = column - 2; check <= column + 3; check++){
+				if(b->getBoardPiece(row,check) != player)
+					samePlayer = 0;
+				else
+					samePlayer++;
+					
+				if(samePlayer == 4)
+					return true;
+			}
+			break;
+		case 3:
+			for(int check = column - 3; check <= column + 3; check++){
+				cout<<"Col: "<<column<<" Row: "<<check<<" Player: "<<b->getBoardPiece(row,check)<<endl;
+				if(b->getBoardPiece(row,check) != player)
+					samePlayer = 0;
+				else
+					samePlayer++;
+					
+				if(samePlayer == 4)
+					return true;
+			}
+			break;
+		case 4:
+			for(int check = column - 3; check <= column + 2; check++){
+				if(b->getBoardPiece(row,check) != player)
+					samePlayer = 0;
+				else
+					samePlayer++;
+					
+				if(samePlayer == 4)
+					return true;
+			}
+			break;
+		case 5:
+			for(int check = column - 3; check <= column + 1; check++){
+				if(b->getBoardPiece(row,check) != player)
+					samePlayer = 0;
+				else
+					samePlayer++;
+					
+				if(samePlayer == 4)
+					return true;
+			}
+			break;
+		case 6:
+			for(int check = column - 3; check <= column; check++){
+				if(b->getBoardPiece(row,check) != player)
+					samePlayer = 0;
+				else
+					samePlayer++;
+					
+				if(samePlayer == 4)
+					return true;
+			}
+			break;
+	}
 	return false;
 }
 
-bool Game::checkVert(int place,int piece,char player){
-	cout << "Place: " << place << " Piece: " <<piece<<" player:  "<<player <<endl;
-		int pos = place + 3;
-		if(place <= 2){
-			for(int check = place; check <= pos; check++){
-				if(b->getBoardPiece(check,piece) != player){
-					cout<<"Check: "<<check<<"Piece: "<<piece<<"Player: "<<b->getBoardPiece(check,piece)<<endl;
+bool Game::checkVert(int row,int column,char player){
+		int pos = row + 3;
+		if(row <= 2){
+			for(int check = row; check <= pos; check++){
+				if(b->getBoardPiece(check,column) != player)
 					return false;
-				}
-				cout<<"NOT IFCheck: "<<check<<"Piece: "<<piece<<"Player: "<<b->getBoardPiece(check,piece)<<endl;
 			}
 			return true;
 		}
