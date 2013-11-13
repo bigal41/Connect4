@@ -9,10 +9,11 @@ class Game{
 		void play();
 		int checkPiece(int);
 		bool checkHorz();
-		bool checkVert();
+		bool checkVert(int,int,char);
 		int  getMove();
 	private:
 		bool win;
+		char player[2];
 		char player1;
 		char player2;
 		int turn;
